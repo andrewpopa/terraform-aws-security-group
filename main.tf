@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "tf_security_group" {
   name        = var.security_group_name
-  description = var.security_grou_description
+  description = var.security_group_description
   vpc_id      = var.tf_vpc
 
   dynamic "ingress" {

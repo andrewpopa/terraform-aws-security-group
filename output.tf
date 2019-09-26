@@ -1,4 +1,5 @@
 output "sg_id" {
+  description = "Security group ID"
   value = aws_security_group.tf_security_group.id
 }
 
