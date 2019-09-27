@@ -133,3 +133,6 @@ For remote testing [travis](https://travis-ci.org) is used with the same steps a
 - You have configured Environment variables for travis
 
 ![alt text](img/travis.png "Travis config")
+
+# TODO
+- [ ] add more terraform functionality
