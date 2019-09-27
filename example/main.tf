@@ -18,4 +18,5 @@ module "security-group" {
   ingress_ports             = [22, 443, 8800, 5432]
 
   tf_vpc = module.vpc.vpc_id
+
 }
