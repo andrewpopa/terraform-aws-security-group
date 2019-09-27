@@ -4,6 +4,6 @@ output "sg_id" {
 }
 
 output "ingress_ports" {
-  description = "List of ports accesible via ALB"
+  description = "List of ports accessible via ALB"
   value = join(",", aws_security_group.tf_security_group.ingress[*].from_port)
 }
