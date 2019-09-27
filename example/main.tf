@@ -10,7 +10,7 @@ module "vpc" {
 }
 
 module "security-group" {
-  source = "../"
+  source = "github.com/andrewpopa/terraform-aws-security-group"
   
   # Security group
   security_group_name       = "my-aws-security-group"
@@ -18,5 +18,4 @@ module "security-group" {
   ingress_ports             = [22, 443, 8800, 5432]
 
   tf_vpc = module.vpc.vpc_id
-
 }
