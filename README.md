@@ -22,15 +22,20 @@ export AWS_DEFAULT_REGION=XXXX
 # How to consume
 - [`example`](https://github.com/andrewpopa/terraform-aws-security-group/tree/master/example) folder contain an example of how to consume the module
 
-```
+```terraform
 module "vpc" {
   source = "github.com/andrewpopa/terraform-aws-vpc"
-  cidr_block = "172.16.0.0/16"
-  vpc_subnets = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"] 
+
+  # VPC
+  cidr_block          = "172.16.0.0/16"
+  vpc_public_subnets  = ["172.16.10.0/24", "172.16.11.0/24", "172.16.12.0/24"]
+  vpc_private_subnets = ["172.16.13.0/24", "172.16.14.0/24", "172.16.15.0/24"]
   vpc_tags = {
-    vpc         = "my-aws-vpc"
-    subnet      = "subnet"
-    internet_gw = "my-internet-gateway"
+    vpc            = "my-aws-vpc"
+    public_subnet  = "public-subnet"
+    private_subnet = "private-subnet"
+    internet_gw    = "my-internet-gateway"
+    nat_gateway    = "nat-gateway"
   }
 }
 
@@ -41,9 +46,9 @@ module "security-group" {
   security_group_name       = "my-aws-security-group"
   security_group_description = "my-aws-security-group-descr"
   ingress_ports             = [22, 443, 8800, 5432]
-
   tf_vpc = module.vpc.vpc_id
 }
+
 
 ```
 
@@ -68,7 +73,7 @@ Module has implemented testing with [kitchen](https://kitchen.ci/) and [kitchen-
 ## Install locally
 
 run in cli
-```
+```bash
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 rbenv init
@@ -78,42 +83,42 @@ source ~/.bash_profile
 
 use 2.3.1 version 
 
-```
+```bash
 rbenv install 2.3.1
 rbenv local 2.3.1
 ```
 
 check current version
-```
+```bash
 rbenv version
 ```
 
 output
-```
+```bash
 2.3.1 (set by /Users/user/.ruby-version)
 ```
 
 make sure you have you bundler installed `bundler version` with similar output
 
-```
+```bash
 Bundler version 2.0.2 (2019-06-13 commit 496bca538)
 ```
 
 or install it 
 
-```
+```bash
 gem install bundler
 ```
 
 install all required gems specified in `Gemfile`
 
-```
+```bash
 bundle install
 ```
 
 test the module
 
-```
+```bash
 bundle exec kitchen converge
 bundle exec kitchen verify
 bundle exec kitchen destroy
