@@ -2,14 +2,14 @@
 
 variable "security_group_name" {
   description = "SG name"
-  type    = string
-  default = "tf-aws-security-group"
+  type        = string
+  default     = "tf-aws-security-group"
 }
 
 variable "security_group_description" {
   description = "SG description"
-  type    = string
-  default = "tf-security-group-description"
+  type        = string
+  default     = "tf-security-group-description"
 }
 
 variable "ingress_ports" {
@@ -20,14 +20,14 @@ variable "ingress_ports" {
 
 variable "sg_tags" {
   description = "Map for sg tags"
-  type = map
+  type        = map
   default = {
-      security_group = "allow-traffic"
+    security_group = "allow-traffic"
   }
 }
 
 variable "vpc_id" {
   description = "VPC where security group will be created"
-  type = string
-  default = "default"
+  type        = string
+  default     = "default"
 }
