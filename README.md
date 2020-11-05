@@ -1,9 +1,12 @@
 # terraform-aws-security-group
 Terraform module to create security-group resource on AWS
 
+<!--
 | **Branch**  | **Build status** |
 | ------------- | ------------- |
 | master  | [![Build Status](https://travis-ci.org/andrewpopa/terraform-aws-security-group.svg?branch=master)](https://travis-ci.org/andrewpopa/terraform-aws-security-group)  |
+
+-->
 
 # Terraform version
 This module was written and tested with Terraform v0.12.9 
@@ -67,7 +70,7 @@ module "security-group" {
 | sg_id | string | Security group ID |
 | ingress_ports | list | List of ports accessible via ALB |
 
-# Testing
+<!-- # Testing
 Module has implemented testing with [kitchen](https://kitchen.ci/) and [kitchen-terraform](https://newcontext-oss.github.io/kitchen-terraform/)
 
 ## Install locally
@@ -141,3 +144,4 @@ For remote testing [travis](https://travis-ci.org) is used with the same steps a
 
 # TODO
 - [ ] add more terraform functionality
+-->

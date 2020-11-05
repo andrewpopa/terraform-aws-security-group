@@ -26,7 +26,7 @@ variable "sg_tags" {
   }
 }
 
-variable "tf_vpc" {
+variable "vpc_id" {
   description = "VPC where security group will be created"
   type = string
   default = "default"
