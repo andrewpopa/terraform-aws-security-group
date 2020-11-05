@@ -17,10 +17,10 @@ module "vpc" {
 
 module "security-group" {
   source = "../"
-  
+
   # Security group
-  security_group_name       = "my-aws-security-group"
+  security_group_name        = "my-aws-security-group"
   security_group_description = "my-aws-security-group-descr"
-  ingress_ports             = [22, 443, 8800, 5432]
-  vpc_id = module.vpc.vpc_id
+  ingress_ports              = [22, 443, 8800, 5432]
+  vpc_id                     = module.vpc.vpc_id
 }
